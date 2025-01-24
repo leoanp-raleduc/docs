@@ -1,293 +1,367 @@
-# SGR Documentation
+# Documentação SGR
 
-## Table of Contents
+## Índice
 
-1. [Introduction](#introduction)
-   - [Purpose](#purpose)
-   - [Features Overview](#features-overview)
-   - [Tech Stack](#tech-stack)
-   - [Project Structure](#project-structure)
+1. [Introdução](#introducao)
+   - [Propósito](#proposito)
+   - [Visão Geral das Funcionalidades](#visao-geral-das-funcionalidades)
+   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+   - [Estrutura do Projeto](#estrutura-do-projeto)
 
-2. [Getting Started](#getting-started)
-   - [Prerequisites](#prerequisites)
-   - [Installation](#installation)
-   - [Configuration](#configuration)
-   - [Running the Application](#running-the-application)
+2. [Começando](#comecando)
+   - [Pré-requisitos](#pre-requisitos)
+   - [Instalação](#instalacao)
+   - [Configuração](#configuracao)
+   - [Executando a Aplicação](#executando-a-aplicacao)
 
-3. [Backend (Django)](#backend-django)
-   - [Application Overview](#application-overview)
-   - [Core Functionality](#core-functionality)
-   - [Udemy API Integration](#udemy-api-integration)
-   - [PDF Generation](#pdf-generation)
-   - [Reporting](#reporting)
-   - [Data Models](#data-models)
-   - [API Endpoints](#api-endpoints)
+3. [Frontend (Angular)](#frontend-angular)
+   - [Visão Geral da Aplicação](#visao-geral-da-aplicacao-1)
+   - [Funcionalidades Principais](#funcionalidades-principais)
+   - [Roteamento](#roteamento)
+   - [Hierarquia de Componentes](#hierarquia-de-componentes)
+   - [Estilização](#estilizacao)
 
-4. [Frontend (Angular)](#frontend-angular)
-   - [Application Overview](#application-overview-1)
-   - [Core Features](#core-features)
-   - [Routing](#routing)
-   - [Component Hierarchy](#component-hierarchy)
-   - [Styling](#styling)
+4. [Backend (Django)](#backend-django)
+   - [Visão Geral da Aplicação](#visao-geral-da-aplicacao)
+   - [Funcionalidade Principal](#funcionalidade-principal)
+   - [Integração com API Udemy](#integracao-com-api-udemy)
+   - [Geração de PDF](#geracao-de-pdf)
+   - [Relatórios](#relatorios)
+   - [Modelos de Dados](#modelos-de-dados)
+   - [Endpoints de API](#endpoints-de-api)
 
-5. [Deployment](#deployment)
-   - [Docker Setup](#docker-setup)
-   - [Environment Variables](#environment-variables)
-   - [Production Considerations](#production-considerations)
-   - [CI/CD Pipeline](#cicd-pipeline)
+5. [Implantação](#implantacao)
+   - [Configuração do Docker](#configuracao-do-docker)
+   - [Variáveis de Ambiente](#variaveis-de-ambiente)
+   - [Considerações para Produção](#consideracoes-para-producao)
+   - [Pipeline CI/CD](#pipeline-cicd)
 
-6. [Testing](#testing)
-   - [Unit Tests](#unit-tests)
-   - [Integration Tests](#integration-tests)
+6. [Testes](#testes)
+   - [Testes Unitários](#testes-unitarios)
+   - [Testes de Integração](#testes-de-integracao)
 
-7. [Contributing](#contributing)
-   - [Code of Conduct](#code-of-conduct)
-   - [Contribution Guidelines](#contribution-guidelines)
+7. [Contribuindo](#contribuindo)
+   - [Código de Conduta](#codigo-de-conduta)
+   - [Diretrizes de Contribuição](#diretrizes-de-contribuicao)
 
-8. [License](#license)
+8. [Licença](#licenca)
 
 ---
 
-## Introduction
+## Introdução
 
-### Purpose
-The purpose of this fullstack web application is to provide a platform for managing course completion certificates for clients who have completed courses on Udemy. The application serves both an external-facing component for clients to generate and download their certificates and an internal-facing component for business analytics and decision-making.
+### Propósito
+O propósito desta aplicação web fullstack é fornecer uma plataforma para gerenciamento de certificados de conclusão de curso para clientes que concluíram cursos na Udemy. A aplicação serve tanto uma parte voltada para o cliente, para gerar e baixar seus certificados, quanto uma parte interna para análises de negócios e tomadas de decisão.
 
-### Features Overview
-- **Certificate Generation:** Automatically generate PDF certificates for completed courses using data from the Udemy API.
-- **Course Data Synchronization:** Regularly sync course data and completion metrics from Udemy.
-- **Business Analytics:** Leverage course and user data to generate reports and visualizations that aid in strategic business decisions.
-- **User Management:** Secure authentication and user management for both clients and internal staff.
-- **Responsive Design:** A modern, responsive frontend interface built using Angular and the Fuse theme.
+### Visão Geral das Funcionalidades
+- **Geração de Certificados:** Gerar automaticamente certificados em PDF para cursos concluídos usando dados da API Udemy.
+- **Sincronização de Dados de Curso:** Sincronizar regularmente dados de curso e métricas de conclusão da Udemy.
+- **Análise de Negócios:** Utilizar dados de curso e usuário para gerar relatórios e visualizações que auxiliem em decisões estratégicas de negócios.
+- **Gerenciamento de Usuários:** Autenticação segura e gerenciamento de usuários para clientes e funcionários internos.
+- **Design Responsivo:** Interface frontend moderna e responsiva construída usando Angular e o tema Fuse.
 
-### Tech Stack
+### Tecnologias Utilizadas
 - **Backend:** Django
-- **Frontend:** Angular with Fuse theme
-- **Database:** PostgreSQL
-- **API Integration:** Udemy API
-- **Deployment:** Docker
+- **Frontend:** Angular com tema Fuse
+- **Banco de Dados:** PostgreSQL
+- **Integração de API:** API Udemy
+- **Implantação:** Docker
 
-### Project Structure
-The project is organized into two main parts:
-- **Backend (Django):** Handles the core application logic, API endpoints, data processing, and integrations.
-- **Frontend (Angular):** Provides the user interface, built using the Fuse theme for a modern look and feel.
+### Estrutura do Projeto
+O projeto é organizado em duas partes principais:
+- **Backend (Django):** Trata da lógica central da aplicação, endpoints da API, processamento de dados e integrações.
+- **Frontend (Angular):** Fornece a interface do usuário, construída usando o tema Fuse para uma aparência moderna.
 
-The application is structured to allow easy maintenance and scalability, ensuring that future developers can quickly navigate and understand its components.
-
+A aplicação é estruturada para permitir fácil manutenção e escalabilidade, garantindo que futuros desenvolvedores possam navegar e entender rapidamente seus componentes.
 
 ---
 
-## Getting Started
+## Começando
 
-This section will guide you through the process of setting up the application locally for development and testing purposes.
+Esta seção irá guiá-lo através do processo de configuração da aplicação localmente para fins de desenvolvimento e teste.
 
-### Prerequisites
+### Pré-requisitos
 
-Before you begin, ensure you have the following software installed on your machine:
+Antes de começar, certifique-se de ter o seguinte software instalado em sua máquina:
 
-- **Python 3.8+**: Required for running the Django backend.
-- **Node.js 14+**: Needed for Angular development.
-- **npm 6+**: Used for managing JavaScript packages.
-- **Docker**: For containerization and deployment.
-- **Git**: Version control system to clone the repository.
+- **Python 3.8+**: Necessário para executar o backend Django.
+- **Node.js 14+**: Necessário para o desenvolvimento Angular.
+- **npm 6+**: Usado para gerenciar pacotes JavaScript.
+- **Docker**: Para conteinerização e implantação.
+- **Git**: Sistema de controle de versão para clonar o repositório.
 
-### Installation
+### Instalação
 
-Follow these steps to set up the application:
+Siga estes passos para configurar a aplicação:
 
-1. **Clone the Repository:**
+1. **Clone o Repositório:**
 
    ```bash
    git clone https://github.com/your-repo/project.git
    cd project
    ```
 
-2. **Backend Setup (Django):**
+2. **Configuração do Backend (Django):**
 
-   - Create and activate a virtual environment:
+   - Crie e ative um ambiente virtual:
 
      ```bash
      python -m venv venv
-     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+     source venv/bin/activate  # No Windows use `venv\Scripts\activate`
      ```
 
-   - Install Python dependencies:
+   - Instale as dependências do Python:
 
      ```bash
      pip install -r requirements.txt
      ```
 
-   - Apply database migrations:
+   - Aplique as migrações do banco de dados:
 
      ```bash
      python manage.py migrate
      ```
 
-   - Create a superuser account for the Django admin interface:
+   - Crie uma conta de superusuário para a interface de administração do Django:
 
      ```bash
      python manage.py createsuperuser
      ```
 
-3. **Frontend Setup (Angular):**
+3. **Configuração do Frontend (Angular):**
 
-   - Navigate to the Angular directory:
+   - Navegue até o diretório Angular:
 
      ```bash
      cd angular
      ```
 
-   - Install Node.js dependencies:
+   - Instale as dependências do Node.js:
 
      ```bash
      npm install
      ```
 
-4. **Environment Configuration:**
+4. **Configuração de Ambiente:**
 
-   - Copy the example environment configuration and customize it:
+   - Copie a configuração de ambiente de exemplo e personalize-a:
 
      ```bash
      cp project/settings.example.py project/settings.py
      ```
 
-   - Ensure you replace placeholders with actual values (e.g., API keys, database URL).
+   - Certifique-se de substituir os espaços reservados por valores reais (por exemplo, chaves de API, URL do banco de dados).
 
-### Configuration
+### Configuração
 
-- **Environment Variables:**
-  Set the required environment variables as specified in the `project/settings.py` or `.env` file.
+- **Variáveis de Ambiente:**
+  Defina as variáveis de ambiente necessárias conforme especificado em `project/settings.py` ou no arquivo `.env`.
 
-  - `DJANGO_SECRET_KEY`: Your Django secret key for the application.
-  - `UDEMY_API_KEY`: API key for accessing Udemy data.
-  - `DATABASE_URL`: URL of the production database if different from SQLite.
+  - `DJANGO_SECRET_KEY`: Sua chave secreta do Django para a aplicação.
+  - `UDEMY_API_KEY`: Chave de API para acessar dados da Udemy.
+  - `DATABASE_URL`: URL do banco de dados de produção, se diferente do SQLite.
 
-### Running the Application
+### Executando a Aplicação
 
-1. **Start the Backend Server:**
+1. **Inicie o Servidor Backend:**
 
-   Make sure your virtual environment is activated, then run:
+   Certifique-se de que seu ambiente virtual esteja ativado, então execute:
 
    ```bash
    python manage.py runserver
    ```
 
-   The Django development server will start at `http://127.0.0.1:8000/`.
+   O servidor de desenvolvimento Django começará em `http://127.0.0.1:8000/`.
 
-2. **Start the Frontend Server:**
+2. **Inicie o Servidor Frontend:**
 
-   Open a new terminal window, navigate to the Angular directory, and run:
+   Abra uma nova janela de terminal, navegue até o diretório Angular e execute:
 
    ```bash
    ng serve
    ```
+
+## Frontend (Angular)
+
+### Visão Geral da Aplicação
+
+O frontend desta aplicação é construído usando o **Fuse Angular Theme**, um template Angular abrangente e altamente personalizável. A documentação do Fuse pode ser encontrada em [Documentação Fuse](https://angular-material.fusetheme.com/docs/guides). Esta documentação serve como um excelente recurso para entender e utilizar os vários componentes e layouts fornecidos pelo tema.
+
+O Fuse é projetado em torno do Angular, Angular Material e TailwindCSS. Ele fornece:
+
+- **Angular** como o framework principal.
+- **Angular Material** para componentes de UI como botões, formulários e abas.
+- **TailwindCSS** para estilização baseada em utilitários e configurações de layout.
+
+Para mais detalhes sobre seus recursos, layouts e melhores práticas, consulte os [Guias do Fuse](https://angular-material.fusetheme.com/docs/guides).
+
+### Estrutura de Diretórios
+
+A estrutura de diretórios do Fuse pode parecer extensa e complexa inicialmente devido ao seu design multi-propósito e multi-layout.
+Para uma explicação detalhada da estrutura de diretórios, consulte a documentação oficial do Fuse: [Estrutura de Diretórios do Fuse](https://angular-material.fusetheme.com/docs/guides/development/directory-structure).
+
+Abaixo está uma versão simplificada da estrutura de diretórios, enfatizando as partes relevantes para o nosso projeto:
+
+```plaintext
+public
+src/
+@fuse/
+app/
+  core/
+  layout/
+  mock-api/
+  modules/
+    admin/
+    auth/
+    landing/
+  app.component.html
+  app.component.scss
+  app.component.ts
+  app.config.ts
+  app.resolvers.ts
+  app.routes.ts
+styles/
+index.html
+main.ts
+```
+
+#### Notas:
+1. **Fuse como um Tema Completo:**  
+   O Fuse inclui uma ampla gama de recursos e módulos, muitos dos quais podem não ser usados ativamente nesta aplicação. Embora isso possa parecer inicialmente avassalador, garante flexibilidade para expansões ou integrações futuras.
+   
+2. **Foco na Personalização:**  
+   Esta documentação cobrirá principalmente os aspectos que foram personalizados ou especificamente construídos para esta aplicação. Para todos os outros elementos, consulte a documentação do Fuse.
+
+3. **Curva de Aprendizado:**  
+   O Fuse é mais do que um simples template—é um guia estruturado para a construção de aplicações. Passar tempo entendendo a estrutura de diretórios e explorando recursos não utilizados será valioso para tirar o máximo proveito deste tema.
+
+---
+
+### Módulos Principais
+
+O diretório `core` contém serviços essenciais, utilidades e configurações que são compartilhados em toda a aplicação. Abaixo estão os principais módulos e seus propósitos:
+
+#### 1. **Módulo de Autenticação**
+O módulo `auth` lida com autenticação e autorização dentro da aplicação. Inclui serviços, interceptores e guardas para gerenciar sessões de usuários, proteger rotas e interagir com o backend para autenticação.
+
+- **Arquivos:**
+  - `auth.interceptor.ts`: Intercepta requisições HTTP para adicionar tokens de autenticação.
+  - `auth.provider.ts`: Fornece configurações e dependências relacionadas à autenticação.
+  - `auth.service.ts`: Gerencia a autenticação do usuário, incluindo login, logout e armazenamento de tokens.
+  - `auth.utils.ts`: Funções utilitárias para autenticação, como validação de token.
+  - `guards/`: Contém guardas de rota para restringir acesso com base em papéis de usuário e status de autenticação.
+    - `auth.guard.ts`: Restringe acesso a usuários autenticados.
+    - `noAuth.guard.ts`: Restringe acesso a usuários não autenticados.
+    - `staff.guard.ts`: Restringe acesso a usuários com permissões de nível de staff.
+
+#### 2. **Módulo de Cursos**
+O módulo `course` gerencia dados e interações relacionados a cursos. Inclui serviços e tipos para buscar, atualizar e exibir informações de cursos.
+
+- **Arquivos:**
+  - `course.service.ts`: Lida com chamadas de API para dados de cursos, como busca de detalhes de curso ou inscrição de usuários.
+  - `course.types.ts`: Define interfaces e tipos TypeScript para estruturas de dados relacionadas a cursos.
+
+#### 3. **Módulo API Udemy**
+O módulo `udemyApi` integra-se com a API Udemy para buscar dados de cursos e outras informações relevantes. Abstrai as interações de API em um serviço reutilizável.
+
+- **Arquivos:**
+  - `udemyApi.service.ts`: Gerencia requisições de API para a Udemy, incluindo busca de listas de cursos, detalhes e resultados de pesquisa.
+  - `udemyApi.types.ts`: Define interfaces e tipos TypeScript para dados retornados pela API Udemy.
+
+#### 4. **Módulo de Usuário**
+O módulo `user` lida com dados e interações relacionadas a usuários. Inclui serviços e tipos para gerenciar perfis de usuários, papéis e permissões.
+
+- **Arquivos:**
+  - `user.service.ts`: Gerencia chamadas de API para dados de usuários, como busca de perfis de usuários ou atualização de informações de usuários.
+  - `user.types.ts`: Define interfaces e tipos TypeScript para estruturas de dados relacionadas a usuários.
+
 ---
 
 ## Backend (Django)
 
-### Application Overview
+### Visão Geral da Aplicação
 
-The backend of this application is built using Django, a high-level Python web framework that encourages rapid development and clean, pragmatic design. It handles all server-side logic, including API integrations, data processing, and PDF generation, ensuring a seamless backend operation for the application.
+O backend desta aplicação é construído usando Django, um framework web de alto nível em Python que incentiva o desenvolvimento rápido e um design limpo e pragmático. Ele lida com toda a lógica do lado do servidor, incluindo integrações de API, processamento de dados e geração de PDF, garantindo uma operação de backend perfeita para a aplicação.
 
-### Core Functionality
+### Funcionalidade Principal
 
-- **Udemy API Integration:** The backend synchronizes course data from Udemy using their API, storing the data in the local database for use in certificate generation and reporting.
-- **Certificate Generation:** The application generates PDF certificates for users who have completed courses, leveraging the `pdf_generator.py` module.
-- **Data Reporting:** Utilizes `report_generator.py` to create comprehensive reports based on user activity and course completion data.
+- **Integração com API Udemy:** O backend sincroniza dados de cursos da Udemy usando sua API, armazenando os dados no banco de dados local para uso na geração de certificados e relatórios.
+- **Geração de Certificados:** A aplicação gera certificados em PDF para usuários que concluíram cursos, utilizando o módulo `pdf_generator.py`.
+- **Relatórios de Dados:** Utiliza `report_generator.py` para criar relatórios abrangentes com base em atividades de usuários e dados de conclusão de cursos.
 
-### Udemy API Integration
+### Integração com API Udemy
 
-The Udemy API integration is handled primarily within the `api_integration` app. This includes:
-- **Scripts:** The `scripts/udemy.py` module manages data pulls from the Udemy API.
-- **Models:** Defined in `models/udemy_api.py`, representing the data structure for storing course and user activity information.
-- **Views:** Located in `views/udemy_api.py`, exposing endpoints for retrieving and processing Udemy data.
+A integração com a API Udemy é gerenciada principalmente dentro do aplicativo `api_integration`. Isso inclui:
+- **Scripts:** O módulo `scripts/udemy.py` gerencia a extração de dados da API Udemy.
+- **Modelos:** Definidos em `models/udemy_api.py`, representando a estrutura de dados para armazenamento de informações de cursos e atividades de usuários.
+- **Views:** Localizado em `views/udemy_api.py`, expondo endpoints para recuperação e processamento de dados da Udemy.
 
-### PDF Generation
+### Geração de PDF
 
-Certificate generation is managed by the `pdf_generator.py` module, which constructs and renders PDF documents based on user data and course completion status. The PDFs are stored in the `media` directory and can be downloaded by users via the frontend.
+A geração de certificados é gerenciada pelo módulo `pdf_generator.py`, que constrói e renderiza documentos PDF com base nos dados de usuários e no status de conclusão de cursos. Os PDFs são armazenados no diretório `media` e podem ser baixados pelos usuários através do frontend.
 
-### Reporting
+### Relatórios
 
-Comprehensive user and course reports are generated using `report_generator.py`, providing insights into course completion rates and user engagement metrics. The reports are accessible through the admin interface and can be used for strategic decision-making.
+Relatórios abrangentes de usuários e cursos são gerados usando `report_generator.py`, fornecendo insights sobre taxas de conclusão de cursos e métricas de engajamento de usuários. Os relatórios são acessíveis através da interface administrativa e podem ser usados para decisões estratégicas.
 
-### Data Models
+### Modelos de Dados
 
-The application includes several key models:
-- **Udemy API Data:** Defined in `models/udemy_api.py`, modeling course and user completion data.
-- **User Activity:** Captured in `models/user_activity.py`, tracking user interactions and course progress.
-- **User Course Activity:** Detailed in `models/user_course_activity.py`, mapping user progress across different courses.
+A aplicação inclui vários modelos-chave:
+- **Dados da API Udemy:** Definidos em `models/udemy_api.py`, modelando dados de conclusão de cursos e usuários.
+- **Atividade do Usuário:** Capturado em `models/user_activity.py`, acompanhando interações de usuários e progresso em cursos.
+- **Atividade de Curso do Usuário:** Detalhado em `models/user_course_activity.py`, mapeando o progresso dos usuários em diferentes cursos.
 
-### API Endpoints
+### Endpoints de API
 
-API endpoints are defined in `urls.py` and implemented in the respective view modules:
-- **Udemy Data Endpoints:** Handled by `views/udemy_api.py`, providing access to course and user data.
-- **User Activity Endpoints:** Managed by `views/user_activity.py` and `views/user_course_activity.py`, exposing data relevant to user interactions and course activities.
-- **Report Endpoints:** Included in `views/reports.py`, allowing users to access generated reports.
+Os endpoints de API são definidos em `urls.py` e implementados nos respectivos módulos de visualização:
+- **Endpoints de Dados Udemy:** Gerenciados por `views/udemy_api.py`, fornecendo acesso a dados de cursos e usuários.
+- **Endpoints de Atividade do Usuário:** Gerenciados por `views/user_activity.py` e `views/user_course_activity.py`, expondo dados relevantes às interações de usuários e atividades de cursos.
+- **Endpoints de Relatórios:** Incluídos em `views/reports.py`, permitindo que os usuários acessem relatórios gerados.
 
-### Additional Components
+### Componentes Adicionais
 
-- **Admin Configuration:** Managed by `admin.py` for data model administration.
-- **Serializers:** Located in `serializers/`, transforming complex data types into JSON and vice versa.
-- **Utilities:** Utility functions and classes are defined in `utils/`, including custom authentication and cloud task management.
-- **Testing:** Test cases are implemented in `tests.py`, ensuring the robustness and reliability of the backend logic.
-
-
----
-
-## Frontend (Angular)
-
-### Application Overview
-Provide a detailed overview of the frontend application.
-
-### Core Features
-Explain the main features and functionality provided in the frontend.
-
-### Routing
-Describe the routing configuration and structure.
-
-### Component Hierarchy
-Outline the component hierarchy and architecture.
-
-### Styling
-Discuss the styling approach, including custom styles and the use of the Fuse theme.
+- **Configuração do Admin:** Gerenciado por `admin.py` para administração de modelos de dados.
+- **Serializadores:** Localizados em `serializers/`, transformando tipos de dados complexos em JSON e vice-versa.
+- **Utilitários:** Funções e classes utilitárias são definidas em `utils/`, incluindo autenticação customizada e gerenciamento de tarefas em nuvem.
+- **Testes:** Casos de teste são implementados em `tests.py`, garantindo a robustez e confiabilidade da lógica do backend.
 
 ---
 
-## Deployment
+## Implantação
 
-### Docker Setup
-Instructions on how to set up and use Docker for the application.
+### Configuração do Docker
+Instruções sobre como configurar e usar o Docker para a aplicação.
 
-### Environment Variables
-List and explain the required environment variables.
+### Variáveis de Ambiente
+Liste e explique as variáveis de ambiente necessárias.
 
-### Production Considerations
-Discuss considerations and configurations for deploying to a production environment.
+### Considerações para Produção
+Discuta considerações e configurações para implantar em um ambiente de produção.
 
-### CI/CD Pipeline
-Overview of the CI/CD pipeline setup for the application.
-
----
-
-## Testing
-
-### Unit Tests
-Explain the unit testing strategy and coverage.
-
-### Integration Tests
-Discuss integration testing and how different parts of the application are tested together.
+### Pipeline CI/CD
+Visão geral da configuração do pipeline CI/CD para a aplicação.
 
 ---
 
-## Contributing
+## Testes
 
-### Code of Conduct
-Outline the expected behavior and code of conduct for contributors.
+### Testes Unitários
+Explique a estratégia de testes unitários e a cobertura.
 
-### Contribution Guidelines
-Provide guidelines on how to contribute to the project.
+### Testes de Integração
+Discuta os testes de integração e como diferentes partes da aplicação são testadas em conjunto.
 
 ---
 
-## License
-Include licensing information for the project.
+## Contribuindo
+
+### Código de Conduta
+Descreva o comportamento esperado e o código de conduta para colaboradores.
+
+### Diretrizes de Contribuição
+Forneça diretrizes sobre como contribuir para o projeto.
+
+---
+
+## Licença
+Inclua informações de licenciamento para o projeto.
