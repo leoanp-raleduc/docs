@@ -1,4 +1,3 @@
-20
 # SGR Documentation
 
 ## Table of Contents
