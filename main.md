@@ -1,3 +1,4 @@
+20
 # SGR Documentation
 
 ## Table of Contents
@@ -274,6 +275,174 @@ The `user` module handles user-related data and interactions. It includes servic
 - **Files:**
   - `user.service.ts`: Manages API calls for user data, such as fetching user profiles or updating user information.
   - `user.types.ts`: Defines TypeScript interfaces and types for user-related data structures.
+
+---
+
+## Application Modules
+
+The `modules` directory contains the primary feature modules of the application, which represent different sections of the frontend. These modules handle various functionalities, including administration, authentication, landing pages, and user settings.
+
+Below is an overview of each module and its key components.
+
+---
+
+### Admin Module
+The `admin` module is responsible for managing administrative tasks within the application. It includes submodules for configuring accounts, managing users, and other administrative functions.
+
+#### **Account Config**
+- **Purpose:** Handles account configuration settings.
+- **Files:**
+  - `account-config.component.html`: Defines the HTML structure.
+  - `account-config.component.ts`: Implements the logic for account configuration.
+  - `account-config.routes.ts`: Manages navigation and routing for this component.
+
+#### **Example**
+- **Purpose:** A placeholder or example component for administrative functionalities.
+- **Files:**
+  - `example.component.html`
+  - `example.component.ts`
+  - `example.routes.ts`
+
+#### **Management**
+- **Purpose:** Manages administrative settings and user permissions.
+- **Files:**
+  - `management.component.html`
+  - `management.component.ts`
+  - `management.routes.ts`
+
+---
+
+### Auth Module
+The `auth` module is responsible for authentication, including user sign-in, sign-up, and password management.
+
+#### **Confirmation Required**
+- **Purpose:** Displays a confirmation message when user verification is required.
+- **Files:**
+  - `confirmation-required.component.html`
+  - `confirmation-required.component.ts`
+  - `confirmation-required.routes.ts`
+
+#### **Email Confirmation**
+- **Purpose:** Handles email verification after sign-up.
+- **Files:**
+  - `email-confirmation.component.html`
+  - `email-confirmation.component.ts`
+  - `email-confirmation.routes.ts`
+
+#### **Forgot Password**
+- **Purpose:** Provides a UI for users to reset their password.
+- **Files:**
+  - `forgot-password.component.html`
+  - `forgot-password.component.ts`
+  - `forgot-password.routes.ts`
+
+#### **Política**
+- **Purpose:** Displays policy-related information.
+- **Files:**
+  - `politica.component.html`
+  - `politica.component.ts`
+  - `politica.routes.ts`
+
+#### **Reset Password**
+- **Purpose:** Allows users to reset their passwords.
+- **Files:**
+  - `reset-password.component.html`
+  - `reset-password.component.ts`
+  - `reset-password.routes.ts`
+
+#### **Sign In**
+- **Purpose:** Implements the user login functionality.
+- **Files:**
+  - `sign-in.component.html`
+  - `sign-in.component.ts`
+  - `sign-in.routes.ts`
+
+#### **Sign Out**
+- **Purpose:** Handles user logout.
+- **Files:**
+  - `sign-out.component.html`
+  - `sign-out.component.ts`
+  - `sign-out.routes.ts`
+
+#### **Sign Up**
+- **Purpose:** Implements the user registration process.
+- **Files:**
+  - `sign-up.component.html`
+  - `sign-up.component.ts`
+  - `sign-up.routes.ts`
+
+#### **Termos**
+- **Purpose:** Displays the terms of service.
+- **Files:**
+  - `termos.component.html`
+  - `termos.component.ts`
+  - `termos.routes.ts`
+
+#### **Unlock Session**
+- **Purpose:** Unlocks a user session after inactivity.
+- **Files:**
+  - `unlock-session.component.html`
+  - `unlock-session.component.ts`
+  - `unlock-session.routes.ts`
+
+---
+
+### Landing Module
+The `landing` module handles the public-facing pages of the application.
+
+#### **Home**
+- **Purpose:** Displays the homepage.
+- **Files:**
+  - `home.component.html`
+  - `home.component.ts`
+  - `home.routes.ts`
+
+#### **Setup**
+- **Purpose:** Guides users through initial setup.
+- **Files:**
+  - `setup.component.html`
+  - `setup.component.ts`
+  - `setup.routes.ts`
+
+---
+
+### Pages Module
+The `pages` module includes various functional pages of the application.
+
+#### **Dashboard**
+- **Purpose:** Displays key analytics and user information.
+- **Files:**
+  - `dashboard.component.html`
+  - `dashboard.component.ts`
+  - `dashboard.routes.ts`
+
+#### **Settings**
+The `settings` module manages user preferences and account configurations.
+
+##### **Account**
+- **Purpose:** Manages user account settings.
+- **Files:**
+  - `account.component.html`
+  - `account.component.ts`
+
+##### **API**
+- **Purpose:** Manages API keys and integrations.
+- **Files:**
+  - `api.component.html`
+  - `api.component.ts`
+
+##### **Security**
+- **Purpose:** Manages security settings like password changes and 2FA.
+- **Files:**
+  - `security.component.html`
+  - `security.component.ts`
+
+##### **Settings Root**
+- **Purpose:** Serves as the entry point for user settings.
+- **Files:**
+  - `settings.component.html`
+  - `settings.component.ts`
+  - `settings.routes.ts`
 
 ---
 
