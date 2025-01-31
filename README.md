@@ -277,6 +277,175 @@ O módulo `user` lida com dados e interações relacionadas a usuários. Inclui 
 
 ---
 
+## Módulos da Aplicação
+
+O diretório `modules` contém os principais módulos de funcionalidade da aplicação, que representam diferentes seções do frontend. Esses módulos lidam com várias funcionalidades, incluindo administração, autenticação, páginas de aterrissagem e configurações do usuário.
+
+Abaixo está uma visão geral de cada módulo e seus principais componentes.
+
+---
+
+### Módulo Admin
+O módulo `admin` é responsável por gerenciar tarefas administrativas dentro da aplicação. Inclui submódulos para configurar contas, gerenciar usuários e outras funções administrativas.
+
+#### **Configuração de Conta**
+- **Propósito:** Gerencia as configurações da conta.
+- **Arquivos:**
+  - `account-config.component.html`: Define a estrutura HTML.
+  - `account-config.component.ts`: Implementa a lógica para configuração de conta.
+  - `account-config.routes.ts`: Gerencia a navegação e roteamento para este componente.
+
+#### **Exemplo**
+- **Propósito:** Um componente de exemplo para funcionalidades administrativas.
+- **Arquivos:**
+  - `example.component.html`
+  - `example.component.ts`
+  - `example.routes.ts`
+
+#### **Gestão**
+- **Propósito:** Gerencia configurações administrativas e permissões de usuários.
+- **Arquivos:**
+  - `management.component.html`
+  - `management.component.ts`
+  - `management.routes.ts`
+
+---
+
+### Módulo Auth
+O módulo `auth` é responsável pela autenticação, incluindo login, registro e gerenciamento de senhas.
+
+#### **Confirmação Necessária**
+- **Propósito:** Exibe uma mensagem de confirmação quando a verificação do usuário é necessária.
+- **Arquivos:**
+  - `confirmation-required.component.html`
+  - `confirmation-required.component.ts`
+  - `confirmation-required.routes.ts`
+
+#### **Confirmação de E-mail**
+- **Propósito:** Gerencia a verificação de e-mail após o registro.
+- **Arquivos:**
+  - `email-confirmation.component.html`
+  - `email-confirmation.component.ts`
+  - `email-confirmation.routes.ts`
+
+#### **Esqueci a Senha**
+- **Propósito:** Fornece uma interface para os usuários redefinirem suas senhas.
+- **Arquivos:**
+  - `forgot-password.component.html`
+  - `forgot-password.component.ts`
+  - `forgot-password.routes.ts`
+
+#### **Política**
+- **Propósito:** Exibe informações relacionadas às políticas da aplicação.
+- **Arquivos:**
+  - `politica.component.html`
+  - `politica.component.ts`
+  - `politica.routes.ts`
+
+#### **Redefinição de Senha**
+- **Propósito:** Permite que os usuários redefinam suas senhas.
+- **Arquivos:**
+  - `reset-password.component.html`
+  - `reset-password.component.ts`
+  - `reset-password.routes.ts`
+
+#### **Login**
+- **Propósito:** Implementa a funcionalidade de login do usuário.
+- **Arquivos:**
+  - `sign-in.component.html`
+  - `sign-in.component.ts`
+  - `sign-in.routes.ts`
+
+#### **Logout**
+- **Propósito:** Gerencia o logout do usuário.
+- **Arquivos:**
+  - `sign-out.component.html`
+  - `sign-out.component.ts`
+  - `sign-out.routes.ts`
+
+#### **Cadastro**
+- **Propósito:** Implementa o processo de registro de usuários.
+- **Arquivos:**
+  - `sign-up.component.html`
+  - `sign-up.component.ts`
+  - `sign-up.routes.ts`
+
+#### **Termos**
+- **Propósito:** Exibe os termos de serviço.
+- **Arquivos:**
+  - `termos.component.html`
+  - `termos.component.ts`
+  - `termos.routes.ts`
+
+#### **Desbloquear Sessão**
+- **Propósito:** Desbloqueia uma sessão de usuário após inatividade.
+- **Arquivos:**
+  - `unlock-session.component.html`
+  - `unlock-session.component.ts`
+  - `unlock-session.routes.ts`
+
+---
+
+### Módulo Landing
+O módulo `landing` gerencia as páginas públicas da aplicação.
+
+#### **Home**
+- **Propósito:** Exibe a página inicial.
+- **Arquivos:**
+  - `home.component.html`
+  - `home.component.ts`
+  - `home.routes.ts`
+
+#### **Configuração Inicial**
+- **Propósito:** Guia os usuários pelo processo de configuração inicial.
+- **Arquivos:**
+  - `setup.component.html`
+  - `setup.component.ts`
+  - `setup.routes.ts`
+
+---
+
+### Módulo Pages
+O módulo `pages` inclui diversas páginas funcionais da aplicação.
+
+#### **Dashboard**
+- **Propósito:** Exibe análises chave e informações do usuário.
+- **Arquivos:**
+  - `dashboard.component.html`
+  - `dashboard.component.ts`
+  - `dashboard.routes.ts`
+
+#### **Configurações**
+O módulo `settings` gerencia preferências do usuário e configurações de conta.
+
+##### **Conta**
+- **Propósito:** Gerencia as configurações da conta do usuário.
+- **Arquivos:**
+  - `account.component.html`
+  - `account.component.ts`
+
+##### **API**
+- **Propósito:** Gerencia chaves de API e integrações.
+- **Arquivos:**
+  - `api.component.html`
+  - `api.component.ts`
+
+##### **Segurança**
+- **Propósito:** Gerencia configurações de segurança, como troca de senha e autenticação em duas etapas (2FA).
+- **Arquivos:**
+  - `security.component.html`
+  - `security.component.ts`
+
+##### **Configurações Gerais**
+- **Propósito:** Serve como ponto de entrada para as configurações do usuário.
+- **Arquivos:**
+  - `settings.component.html`
+  - `settings.component.ts`
+  - `settings.routes.ts`
+
+---
+
+
 ## Backend (Django)
 
 ### Visão Geral da Aplicação
